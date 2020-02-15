@@ -2,8 +2,9 @@
 Purpose: determine if hurricane evacuation is possible
 
 ## Front end (HTML, CSS, JS)
-- Call Maps API to display location
-- Displays map with route overlay or recommended action
+- User inputs their address
+- Call Maps API to display a map of user area
+- If user needs to evacuate, then get evac route from database + overlay it
 
 ## Back end (Python + Pandas library for database)
 Store user-inputted evac routes in database
