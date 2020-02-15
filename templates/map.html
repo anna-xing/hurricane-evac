@@ -38,10 +38,20 @@
     </div>
     <div id="map"></div>
     <script>
+      var map;
+      var src = 'https://drive.google.com/uc?export=view&id=1SgKCOpc8CTMCkMXeoAkUB3cLNp6-Kf19';
+      
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 8,
           center: {lat: -34.397, lng: 150.644}
+        });
+       // var kmlLayer = new google.maps.KmlLayer();
+       
+        var kmlLayer = new google.maps.KmlLayer(src, {
+          suppressInfoWindows: true,
+          preserveViewport: false,
+          map: map
         });
         var geocoder = new google.maps.Geocoder();
 
