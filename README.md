@@ -10,13 +10,13 @@ Purpose: determine if hurricane evacuation is possible
 Store user-inputted evac routes in database
 Get hurricane path
 - Scrape web for time and lat+long coordinates - Rene
-- Get speed: find distance between lat+long coordinates and divide by time
+- Get speed: find distance between lat+long coordinates and divide by time - Hemika
 - Calculate hurricane radius - Hemika
 - Store impacted area
 
 See if user should evacuate
-- Call Maps API to get user location from address input
-- See if location is in impacted area
+- Pass in user location from front-end JS (format: lat + long)
+- See if location is within hurricane radius from hurricane path
 - Find time at which hurricane will reach user (interpolate)
 - Check hurricane windspeed: minimum 96 mph
 
