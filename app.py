@@ -3,10 +3,7 @@ import numpy as np
 import pandas as pd
 from flask import Flask, render_template, jsonify
 
-project_root = os.path.dirname(__file__)
-template_path = os.path.join(project_root, './')
-
-app = Flask(__name__, template_folder=template_path)
+app = Flask(__name__)
 
 @app.route('/')
 def render():
