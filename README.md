@@ -8,6 +8,7 @@ Purpose: determine if hurricane evacuation is possible
 
 ## Back end (Python + Pandas library for database)
 Store user-inputted evac routes in database
+
 Get hurricane path
 - Scrape web for time and lat+long coordinates - Rene
 - Get speed: find distance between lat+long coordinates and divide by time - Hemika
