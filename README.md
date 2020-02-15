@@ -13,10 +13,10 @@ Get hurricane path
 - Store impacted area
 
 See if user should evacuate
-- Check hurricane windspeed: minimum 96 mph
 - Call Maps API to get user location from address input
 - See if location is in impacted area
-
-If user should evacuate:
 - Find time at which hurricane will reach user (interpolate)
+- Check hurricane windspeed: minimum 96 mph
+
+If user needs to evacuate:
 - 
