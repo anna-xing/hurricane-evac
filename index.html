@@ -11,8 +11,10 @@
 <body>
     <h1>hello world</h1>
     <form>
-        <input type="text">
-        <a href="#" id="process_input"><button>Submit</button></a>
+        <input id="userLocation" type="text">
+        <a href="#" id="processInput" onclick="passUserLocation($('#userLocation').val())">
+            <button>Submit</button>
+        </a>
     </form>
 
 </body>
