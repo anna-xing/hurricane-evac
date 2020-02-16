@@ -7,7 +7,7 @@ from shapely.geometry import LineString, Point
 from geopy.distance import geodesic
 
 app = Flask(__name__)
-# client = MongoClient()
+client = MongoClient()
 
 # Both miles
 RADIUS = 150
