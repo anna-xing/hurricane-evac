@@ -34,7 +34,8 @@ def add_route():
 # Checking if evacuation is feasible given user location
 @app.route('/check_evac', methods=['GET', 'POST'])
 def check_evac():
-    user_location = request.get_json()
+   # user_location = request.get_json()
+   user_location = [25.940556, -81.714722]
 
     # Reading in hurricane data points
     import hurr_data_reader
