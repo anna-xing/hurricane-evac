@@ -49,21 +49,52 @@ def check_evac():
 
     for i in range(1, len(windspeeds)):
         # Getting distance from hurricane path to user
-        # line = LineString([ (lats[i-1], lngs[i-1]), (lats[i], lngs[i])])
-        # pt = Point(user_location.get('lat'), user_location.get('lng'))
-        # dist = pt.distance(line)
-        # nearest_pt = (float(line.interpolate(dist).wkt[7:23]), float(line.interpolate(dist).wkt[25:-1]))
-        # dist_miles = geodesic(nearest_pt, (user_location.get('lat'), user_location.get('lng'))).miles
+        x1 = lats[i-1]
+        y1 = lngs[i-1]
 
-        if windspeeds[i] >= MIN_WINDSPEED and dist_miles <= RADIUS:
+        x2 = lats[i]
+        y2 = lngs[i]
+
+        user_x = user_location.get('lat')
+        user_y = user_location.get('lng')
+
+        hurr_line = {
+            'm': (y2-y1) / (x2-x1) if (x2-x1 != 0) else None,
+            'b': y1 - ((y2-y1)/(x2-x1)) * x1 if (x2-x1 != 0) else None
+        }
+
+        if hurr_line.get('m') == 0:
+            perp_line = {
+                'm': None,
+                'b': None
+            }
+        else:
+            perp_line = {
+                'm': -1 / hurr_line.get('m') if hurr_line.get('m') != None else 0,
+                'b': user_y - ((x1-x2)/(y2-y1)) * user_x if (y2-y1 != 0) else user_y
+            }
+
+        if perp_line.get('m') == None:
+            inter_x = user_x
+            inter_y = y1
+        elif hurr_line.get('m') == None:
+            inter_x = x1
+            inter_y = user_y
+        else:
+            inter_x = (perp_line.get('b') - hurr_line.get('b')) / (hurr_line.get('m') - perp_line.get('m'))
+            inter_y = hurr_line.get('m') * inter_x + hurr_line.get('b')
+
+        dist = geodesic((inter_x, inter_y), (user_x, user_y)).miles
+        
+        if windspeeds[i] >= MIN_WINDSPEED and dist <= RADIUS:
             return redirect('/display_evac.html')
 
     return redirect('/')
 
 # Getting evac routes from MongoDB
-# @app.route('/display_evac')
-# def display_evac():
-
+@app.route('/display_evac')
+def display_evac():
+    
 
 
 if __name__ == "__main__":
