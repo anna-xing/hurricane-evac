@@ -95,7 +95,7 @@ def check_evac():
 
     return redirect('/map.html')
 
-# # Getting evac routes from MongoDB
+# Getting evac routes from MongoDB
 # @app.route('/display_evac')
 # def display_evac():
 

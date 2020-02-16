@@ -56,7 +56,8 @@
         <input id="submit" type="button" value="Locate">
     </div>
     <div id="floating-modal">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Evacuation Info</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Evacuation
+            Info</button>
     </div>
     <div class="container">
 
@@ -71,9 +72,10 @@
                         <h4 class="modal-title">Evacuation Information</h4>
                     </div>
                     <div class="modal-body">
-                        <p>The current risk level in this zone is high.</p> <!--within 96mph-->
-                        <p>Evacuation is recommended.</p>
-                        <p>There are 12 hours remaining before the hurricane approaches your location.</p>
+                        <p>The current risk level in this zone is <span id="risk-level">high</span>.</p>
+                        <!--within 96mph-->
+                        <p>Evacuation is <span id="evac-rec">recommended</span>.</p>
+                        <p>There are <span id="time-remaining">12 hours</span> remaining before the hurricane reaches your location.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -94,33 +96,35 @@
                 modal01.style.display = "none";
             }
         }
-    </script>
-    <script>
+        
         var map;
         var src = 'https://drive.google.com/uc?export=view&id=1SgKCOpc8CTMCkMXeoAkUB3cLNp6-Kf19';
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 6,
-                center: { lat: -34.397, lng: 150.644 }
+                center: {
+                    lat: -34.397,
+                    lng: 150.644
+                }
             });
-            // var kmlLayer = new google.maps.KmlLayer();
 
-            var kmlLayer = new google.maps.KmlLayer(src, {
-                suppressInfoWindows: true,
-                preserveViewport: false,
-                map: map
-            });
             var geocoder = new google.maps.Geocoder();
 
             document.getElementById('submit').addEventListener('click', function () {
                 geocodeAddress(geocoder, map);
+                var kmlLayer = new google.maps.KmlLayer(src, {
+                    suppressInfoWindows: true,
+                    preserveViewport: false,
+                    map: map
+                });
             });
-
 
             function geocodeAddress(geocoder, resultsMap) {
                 var address = document.getElementById('address').value;
-                geocoder.geocode({ 'address': address }, function (results, status) {
+                geocoder.geocode({
+                    'address': address
+                }, function (results, status) {
                     if (status === 'OK') {
                         resultsMap.setCenter(results[0].geometry.location);
                         var marker = new google.maps.Marker({
@@ -153,7 +157,7 @@
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV5fMhen4qk84sPxZyuQ4QypR3t1pz0I&callback=initMap">
-        </script>
+    </script>
 </body>
 
 </html>
