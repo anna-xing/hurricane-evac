@@ -75,23 +75,25 @@
       geocoder.geocode({
         'address': address
       }, function (results, status) {
-        console.log(JSON.stringify({results[0].geometry.location});
         if (status === 'OK') {
           let userLocation = results[0].geometry.location;
+
           resultsMap.setCenter(userLocation);
           var marker = new google.maps.Marker({
             map: resultsMap,
             position: userLocation
           });
+
           $.ajax({
             type: 'POST',
-            contentType: 'application/json',
+            method: 'POST',
+            contentType: 'application/json;charset=UTF-8',
             url: '/check_evac',
             traditional: 'true',
             dataType: 'json',
             data: JSON.stringify({
-              lat: userLocation.lat(),
-              lng: userLocation.lng()
+              'lat': userLocation.lat(),
+              'lng': userLocation.lng()
             }),
           });
         } else {
