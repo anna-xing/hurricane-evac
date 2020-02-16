@@ -20,8 +20,15 @@ def main():
 # Adding evac route entries into MongoDB
 @app.route("/add_routes")
 def add_route():
-    db.db.collection.insert_one({"_id": "testRoute1", "distance": 5, "feasible": True})
-    db.db.collection.insert_one({"_id": "testRoute2", "distance": 3, "feasible": False})
+    db.db.collection.insert_one({"start": [26.317770, -81.745250], "end": [26.167890, -81.113650]})
+    db.db.collection.insert_one({"start": [26.157330, -81.345170], "end": [25.840650, -81.383470]})
+    db.db.collection.insert_one({"start": [26.323280, -81.810040], "end": [26.157330, -81.345170]})
+    db.db.collection.insert_one({"start": [26.499590, -81.489690], "end": [26.466190, -81.436340]})
+    db.db.collection.insert_one({"start": [26.321970, -81.810180], "end": [25.813330, -80.883550]})
+    db.db.collection.insert_one({"start": [26.418500, -81.407150], "end": [26.292980, -81.579290]})
+    db.db.collection.insert_one({"start": [26.333730, -81.545900], "end": [26.233970, -81.544540]})
+    db.db.collection.insert_one({"start": [26.229860, -81.543380], "end": [26.211830, -81.723030]})
+    db.db.collection.insert_one({"start": [26.272970, -81.790520], "end": [26.153120, -81.538400]})
     return render_template('map.html')
 
 # Checking if evacuation is feasible given user location
