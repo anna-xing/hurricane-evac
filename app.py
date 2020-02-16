@@ -18,6 +18,10 @@ MIN_WINDSPEED = 96
 def main():
     return render_template('home.html')
 
+@app.route('/map.html')
+def map():
+    return render_template('map.html')
+
 # Adding evac route entries into MongoDB
 @app.route('/add_routes')
 def add_route():
@@ -89,7 +93,7 @@ def check_evac():
         if windspeeds[i] >= MIN_WINDSPEED and dist <= RADIUS:
             return redirect('/display_evac.html')
 
-    return render_template('map1.html')
+    return redirect('/map.html')
 
 # # Getting evac routes from MongoDB
 # @app.route('/display_evac')
