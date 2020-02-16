@@ -89,9 +89,9 @@
                     };
                     var marker = new google.maps.Marker({
                         map: map,
-                        position: new google.maps.LatLng(position.coords.latitude - 0.00001, position.coords.longitude)//pos
+                        position: pos//new google.maps.LatLng(position.coords.latitude - 0.00001, position.coords.longitude)
                     });
-                    map.setCenter(new google.maps.LatLng(position.coords.latitude - 0.00001, position.coords.longitude));//pos);
+                    map.setCenter(pos);//new google.maps.LatLng(position.coords.latitude - 0.00001, position.coords.longitude));
                 }, function () {
                     handleLocationError(true, map.getCenter());
                 });
