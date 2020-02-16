@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>map</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>Evac Map</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -22,7 +25,7 @@
 
         #floating-panel {
             position: absolute;
-            top: 10px;
+            top: 5px;
             left: 25%;
             z-index: 5;
             background-color: #fff;
@@ -30,6 +33,17 @@
             border: 1px solid #999;
             text-align: center;
             font-family: 'Roboto', 'sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+        }
+
+        #floating-modal {
+            position: absolute;
+            top: 90px;
+            left: 0;
+            z-index: 5;
+            padding: 5px;
+            text-align: center;
             line-height: 30px;
             padding-left: 10px;
         }
@@ -41,7 +55,44 @@
         <input id="address" type="textbox" value="Collier County, FL">
         <input id="submit" type="button" value="Locate">
     </div>
+    <div id="floating-modal">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Evacuation Info</button>
+    </div>
+    <div class="container">
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Evacuation Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>The current risk level in this zone is</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div id="map"></div>
+    <script>
+        // Get the modal
+        var modal01 = document.getElementById('myModal');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal01) {
+                modal01.style.display = "none";
+            }
+        }
+    </script>
     <script>
         var map;
         var src = 'https://drive.google.com/uc?export=view&id=1SgKCOpc8CTMCkMXeoAkUB3cLNp6-Kf19';
