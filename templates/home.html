@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>app name</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
+    <style>
+        .centered {
+            position: absolute;
+            text-align: center;
+            top: 37%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h1 {
+            color: white;
+            font-family: "Exo";
+            font-size: 60px;
+        }
+
+        .button {
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        .b {
+            background-color: #cfcfcf;
+            color: black;
+            border: 2px solid #cfcfcf;
+        }
+
+        .b:hover {
+            background-color: #666666;
+            color: #cfcfcf;
+            border: 2px solid #666666;
+        }
+
+        h2 {
+            color: black;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="90.png" style="width:100%; margin-left:0">
+    <div class="centered">
+        <h1>* app name *</h1>
+        <p style="font-size:10px"><br></p>
+        <p style="color:white; font-size:20px;">Press the button to try app name!</p>
+        <button class="button b" onclick="location.href = 'map.html';">CLICK</button>
+    </div>
+
+    <div class="jumbotron text-center">
+        <h2 >Description</h2>
+        <p>App name is a real time tool that allows users to check if the determined location will be impacted from an approaching hurricane. 
+            If the location appears to be in a dangerous zone and evacuation is required, evacuation routes will be displayed on the map. Otherwise, a message with suggested next steps will be shown.<br></p>
+    </div>
+</body>
+
+</html>
