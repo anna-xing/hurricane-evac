@@ -1,10 +1,11 @@
 # hurricane-evac
-Purpose: determine if hurricane evacuation is possible
+Purpose: Hurricane Evac determines if hurricane evacuation is possible from inputted location, and provide recommended next steps.
 
 ## Front end (HTML, CSS, JS)
-- User inputs their address
-- Call Maps API to display a map of user area
-- If user needs to evacuate, then get evac route from database + overlay it
+- Home page: Description, button leading to application
+- Google Maps API to display a map of user area
+- My Maps overlay consisting of evacuation routes in Collier County, Florida
+- Evacuation routes taken from MonogoDB
 
 ## Back end (Python + Pandas library for database)
 Store user-inputted evac routes in database
