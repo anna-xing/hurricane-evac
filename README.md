@@ -5,7 +5,7 @@ Purpose: Hurricane Evac determines if hurricane evacuation is possible from inpu
 - Home page: Description, button leading to application
 - Google Maps API to display a map of user area
 - My Maps overlay consisting of evacuation routes in Collier County, Florida
-- Evacuation routes taken from MonogoDB
+- Evacuation Info button for pop-up recommendations
 
 ## Back end (Python + Pandas library for database)
 Store user-inputted evac routes in database
